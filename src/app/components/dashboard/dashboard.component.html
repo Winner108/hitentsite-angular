@@ -1,0 +1,53 @@
+<div class="container dshbrd-cntr">
+	<div class="row">
+		<div class="col s3 lft-cntnt">
+			<div class="u-info">
+				<h5 class="u-name">{{getUser().username}}</h5>
+			</div>
+			<div class="dshbrd-sdbr">
+				<ul class="collapsible" data-collapsible="expandable" materialize="collapsible">
+					<li class="active">
+						<div class="collapsible-header active">{{'My Account'|translate}}</div>
+						<div class="collapsible-body" style="display: block;">
+							<ul class="collection">
+								<li class="collection-item"><a routerLinkActive="active" routerLink="/dashboard/payments/deposit-money"><i class="fa fa-money"></i> {{'Deposit'|translate}}</a>
+								</li>
+								<li class="collection-item"><a routerLinkActive="active" routerLink="/dashboard/payments/withdraw-money"><i class="fa fa-money"></i> {{'Withdraw'|translate}}</a>
+								</li>
+                <li class="collection-item">
+									<a routerLinkActive="active" routerLink="/dashboard/banks">
+										<i class="fa fa-bank"></i> {{'Bank Accounts'|translate}}
+									</a>
+								</li>
+                <li class="collection-item">
+									<a routerLinkActive="active" routerLink="/dashboard/account-activity/financial-transactions">
+										<i class="fa fa-pie-chart"></i> {{'Financial Transactions'|translate}}
+									</a>
+								</li>
+                <li class="collection-item">
+									<a routerLinkActive="active" routerLink="/dashboard/user-info/personal-and-account-detail">
+										<i class="fa fa-user"></i> {{'Personal Information'|translate}}
+									</a>
+								</li>
+                <li class="collection-item">
+									<a routerLinkActive="active" routerLink="/dashboard/user-info/change-password">
+										<i class="fa fa-unlock-alt"></i> {{'Change Password'|translate}}
+									</a>
+								</li>
+                <li class="collection-item">
+									<a routerLinkActive="active" routerLink="/dashboard/tickets">
+										<i class="fa fa-send"></i> {{'Tickets'|translate}}
+									</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+		<div class="col s9 rght-cntnt">
+			<router-outlet></router-outlet>
+		</div>
+	</div>
+</div>

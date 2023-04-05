@@ -1,0 +1,243 @@
+<div class="authntctn-cntr signup">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <app-static-inner-content contentcode="signupTop"></app-static-inner-content>
+            </div>
+        </div>
+        <div class="row signup-cntr">
+            <app-notifications></app-notifications>
+            <message-box *ngIf="status.msg != ''" type="{{status.msgType}}" content="MESSAGES.LOGIN_FAILD" contentText="{{status.msg}}"></message-box>
+            <div class="col s12">
+                <div class="row">
+                    <div class="col s12">
+                        <h5 class="auth-title">{{'Register'|translate}}</h5>
+                    </div>
+                </div>
+                <form novalidate>
+                    <div class="row ng-touched ng-dirty ng-invalid" ngmodelgroup="signUpFields">
+                        <div class="col prsnl-infrmtn s4">
+                            <div class="modul-accordion">
+                                <div class="modul-header"><i class="fa fa-user right"></i><span class="left header-text">{{'Account Information'|translate}}</span></div>
+                                <div class="module-content">
+                                    <div class="input-field username required">
+                                        <span class="field-label required">{{'Username'|translate}}</span>
+                                        <input class="validate browser-default place-text valid ng-touched ng-dirty ng-invalid" debounce="500" id="username" type="text" placeholder="" required="" pattern="^[a-zA-Z0-9]*$" [(ngModel)]="username" name="username" (change)="checkValidUsername()">
+                                        <field-messages *ngIf="isSubmited && username == ''" content="{{'This field can not be empty.'|translate}}"></field-messages>
+                                        <field-messages *ngIf="isAlreadyUsedUsername" content="{{'Username is already in use.'|translate}}"></field-messages>
+                                    </div>
+                                    <div ng-class="{field.name}" class="input-group align-items-res firstName ">
+                                        <div class="input-field required">
+                                            <span class="field-label required">{{'Name'|translate}}</span>
+                                            <input class="validate browser-default place-text" type="text" id="firstName" placeholder="" required="" pattern="^[İıÖöÜüÇçĞğŞşAA-Za-z_ ]+$" [(ngModel)]="firstname" name="firstname">
+                                            <field-messages *ngIf="isSubmited && firstname == ''" content="{{'This field can not be empty.'|translate}}"></field-messages>
+                                            <field-messages *ngIf="firstname != '' && firstname.length < 2" content="{{'Minimum length: 2'|translate}}"></field-messages>
+                                        </div>
+                                        <!-- <div class="suffix-field">
+                                            <input checked="checked" class="filled-in ng-untouched ng-pristine ng-valid" id="filled-in-box" type="checkbox">
+                                            <label for="filled-in-box">I have a middle name</label>
+                                        </div> -->
+                                    </div>
+                                    <div class="input-field surname required">
+                                        <span class="field-label required">{{'Last name'|translate}}</span>
+                                        <input class="validate browser-default place-text" debounce="500" id="surname" type="text" placeholder="" required="" pattern="^[İıÖöÜüÇçĞğŞşAA-Za-z_ ]+$" [(ngModel)]="lastname" name="lastname">
+                                        <field-messages *ngIf="isSubmited && lastname == ''" content="{{'This field can not be empty.'|translate}}"></field-messages>
+                                        <field-messages *ngIf="lastname != '' && lastname.length < 2" content="{{'Minimum length: 2'|translate}}"></field-messages>
+                                    </div>
+                                    <div class="input-field email required">
+                                        <span class="field-label required">{{'E-Mail'|translate}}</span>
+                                        <input class="validate browser-default place-text"
+                                         debounce="500" id="email" type="email" placeholder="" required=""
+                                          maxlength="100"
+
+                                          [(ngModel)]="email" name="email">
+                                        <field-messages *ngIf="isSubmited && email == ''" content="{{'This field can not be empty.'|translate}}"></field-messages>
+                                        <field-messages *ngIf="email != '' && !checkEmailValied()" content="{{'Invalid E-mail'|translate}}"></field-messages>
+                                    </div>
+                                    <div class="input-field phone required">
+                                        <span class="field-label required">{{'Phone'|translate}}</span>
+                                        <div class="iti iti--allow-dropdown iti--separate-dial-code">
+                                            <div class="iti__flag-container">
+                                                <div class="iti__selected-flag" role="combobox" tabindex="0" title="{{selectedCountry.name}}: +{{selectedCountry.dial_code}}" (click)="isToggleCoutryList = !isToggleCoutryList">
+                                                    <div class="iti__flag iti__{{selectedCountry.code}}"></div>
+                                                    <div class="iti__selected-dial-code">+{{selectedCountry.dial_code}}</div>
+                                                    <div class="iti__arrow"></div>
+                                                </div>
+                                                <ul class="iti__country-list" id="iti-0__country-listbox" role="listbox" [ngClass]="{
+                                                    'iti__hide': !isToggleCoutryList
+                                                }">
+                                                    <li class="iti__country iti__preferred iti__active" tabindex="-1" id="iti-0__item-tr-preferred" role="option"  aria-selected="true">
+                                                        <div class="iti__flag-box">
+                                                            <div class="iti__flag iti__{{selectedCountry.code}}"></div>
+                                                        </div>
+                                                        <span class="iti__country-name">{{selectedCountry.name}}</span>
+                                                        <span class="iti__dial-code">+{{selectedCountry.dial_code}}</span></li>
+
+                                                    <li class="iti__divider" role="separator" aria-disabled="true"></li>
+
+                                                    <li *ngFor="let country of countries" class="iti__country iti__standard" tabindex="-1" id="iti-0__item-{{country.code}}" role="option" aria-selected="false" (click)="selectedCountry = country;isToggleCoutryList = !isToggleCoutryList">
+                                                        <div class="iti__flag-box">
+                                                            <div class="iti__flag iti__{{country.code}}"></div>
+                                                        </div>
+                                                        <span class="iti__country-name">{{country.name}}</span>
+                                                        <span class="iti__dial-code">+{{country.dial_code}}</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <input class="browser-default" mask="(000) 000-0000"  ng2telinput="" type="text" autocomplete="off" placeholder="{{'Mobile Number'|translate}}" data-intl-tel-input-id="0" id="phone" required="" style="padding-left: 81px;" [(ngModel)]="phone" name="phone">
+                                            <field-messages *ngIf="isSubmited && phone == ''" content="{{'This field can not be empty.'|translate}}"></field-messages>
+                                        </div>
+                                    </div>
+                                    <div class="three-steps-mode">
+                                        <div class="flex-container step-btns">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col prsnl-infrmtn s4">
+                            <div class="modul-accordion">
+                                <div class="modul-header"><i class="fa fa-user right"></i><span class="left header-text">{{'Personal Information'|translate}}</span></div>
+                                <div class="module-content">
+                                    <div class="input-field password bubble required">
+                                        <span class="field-label required">{{'Password'|translate}}</span>
+                                        <input class="validate browser-default place-text" debounce="500" id="password" type="{{isShowPassword ? 'text' : 'password'}}" placeholder="" required="" maxlength="25" [(ngModel)]="password" name="password">
+                                        <bubble-validator [password]="password" position="right"></bubble-validator>
+                                        <password-eye el="password" (click)="isShowPassword = !isShowPassword"></password-eye>
+                                        <field-messages *ngIf="isSubmited && password == ''" content="{{'Invalid password, please specify a valid password matching with the rules.'|translate}}"></field-messages>
+                                    </div>
+                                    <div class="input-field birthdate required">
+                                        <span class="field-label required">{{'Birthdate'|translate}}</span>
+                                        <div class="flex-container">
+                                            <div class="flex-item">
+                                                <div class="select-field">
+                                                    <select class="browser-default" id="days" name="day" [(ngModel)]="day">
+                                                        <option disabled="" selected="" value="">{{'Day' | translate}}</option>
+                                                        <option *ngFor="let d of days" value="{{d}}">{{d}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="flex-item">
+                                                <div class="select-field">
+                                                    <select class="browser-default" id="months" name="month" [(ngModel)]="month">
+                                                        <option disabled="" selected="" value="">{{'Month' | translate}}</option>
+                                                        <option *ngFor="let m of months" value="{{m}}">{{m}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="flex-item">
+                                                <div class="select-field">
+                                                    <select class="browser-default" id="years" name="day" [(ngModel)]="year">
+                                                        <option disabled="" selected="" value="">{{'Year' | translate}}</option>
+                                                        <option *ngFor="let y of years" value="{{y}}">{{y}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <field-messages *ngIf="isSubmited && (day == '' || month == '' || year == '')" content="{{'This field can not be empty.'|translate}}"></field-messages>
+                                    </div>
+                                    <div class="select-field required">
+                                        <span class="field-label required">{{'Country'|translate}}</span>
+                                        <select class="browser-default" id="countryId" required=""  [(ngModel)]="country" name="country">
+                                            <option selected="" value="">{{'Select'|translate}}</option>
+                                            <option *ngFor="let countryObject of countries" value="{{countryObject.dial_code}}">{{countryObject.name}}</option>
+                                        </select>
+                                        <field-messages *ngIf="isSubmited && country == ''" content="{{'This field can not be empty.'|translate}}"></field-messages>
+                                    </div>
+                                    <div class="input-field ID required">
+                                        <span class="field-label required">{{'Identity Number'|translate}}</span>
+                                        <input class="validate browser-default place-text"
+                                        mask="00000000000"
+                                        debounce="500" id="identity_number" type="text" placeholder="" required="" [(ngModel)]="identity_number" name="identity_number">
+                                        <field-messages *ngIf="identity_number != '' && !tckimlik()" content="{{'Identity Number is wrong.'|translate}}"></field-messages>
+                                        <field-messages *ngIf="isSubmited && identity_number == ''" content="{{'This field can not be empty.'|translate}}"></field-messages>
+                                    </div>
+                                    <div class="input-field cityName required">
+                                        <span class="field-label required">{{'City'|translate}}</span>
+                                        <input class="validate browser-default place-text" debounce="500" id="cityName" type="text" placeholder="" required="" [(ngModel)]="city" name="city">
+                                        <field-messages *ngIf="isSubmited && city == ''" content="{{'This field can not be empty.'|translate}}"></field-messages>
+                                    </div>
+                                    <div class="input-field required">
+                                        <span class="field-label required">{{'Address'|translate}}</span>
+                                        <textarea class="validate browser-default place-text" cols="30" rows="10" id="address" placeholder="" maxlength="300" [(ngModel)]="address" name="address"> </textarea>
+                                        <field-messages *ngIf="isSubmited && address == ''" content="{{'This field can not be empty.'|translate}}"></field-messages>
+                                        <field-messages *ngIf="address != '' && address.length < 10" content="{{'Minimum length: 10'|translate}}"></field-messages>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col prsnl-infrmtn s4">
+                            <div class="modul-accordion">
+                                <div class="modul-header"><i class="fa fa-user right"></i><span class="left header-text">{{'Confirm Information'|translate}}</span></div>
+                                <div class="module-content">
+                                    <div class="register-info"> {{'When registering to garanticasino, Accurate personal information is required for the verification and security of your account.Failing to do so will result in suspension and/or termination of their accounts for good. Customers are aware of the responsibilities of betting laws in their countries. garanticasino reserves the rights to refuse any membership without explanation.'|translate}} </div>
+                                    <div class="checkbox-field mar-top-10">
+                                        <input class="filled-in" type="checkbox" name="privacyPolicy" id="privacyPolicy" required="" [(ngModel)]="privacyPolicy">
+                                        <label for="privacyPolicy">
+                                            <span class="required-icon"></span>
+                                            {{'I am above 18 years of age and have read and accepted'|translate}}
+                                            <a class="privacyPolicy blue-text">{{'Privacy Policy'|translate}} </a>
+                                        </label>
+                                        <field-messages *ngIf="isSubmited && privacyPolicy == false" content="{{'This field can not be empty.'|translate}}"></field-messages>
+                                    </div>
+                                    <div class="checkbox-field mar-top-10">
+                                        <input class="filled-in" type="checkbox" name="termsAndConditions" id="termsAndConditions" required="" [(ngModel)]="termsAndConditions">
+                                        <label for="termsAndConditions">
+                                            <span class="required-icon"></span>
+                                            {{'I confirm information above is correct. I also confirm that I have read and agreed to all the rules, terms, conditions, policies and other applicable site regulations.'|translate}}
+                                            <a class="termsAndConditions blue-text">{{'Terms and Conditions'|translate}} </a>
+                                        </label>
+                                        <field-messages *ngIf="isSubmited && termsAndConditions == false" content="{{'This field can not be empty.'|translate}}"></field-messages>
+                                    </div>
+                                    <div class="three-steps-mode">
+                                        <div class="flex-container step-btns">
+                                            <button class="btn next-btn flex-item register-btn" type="button" (click)="register()"> {{'Register'|translate}} </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <app-static-inner-content contentcode="signupBottom"></app-static-inner-content>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="termsAndConditionsModal" materialize="modal" style="z-index: 1017;">
+    <div class="mdl-hdr">
+        <div class="header-content">
+            <div class="modal-close-button">
+                <a><i class="fa fa-times"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="modal-content">
+        <app-static-inner-content contentcode="about-us-gen-terms-cond"></app-static-inner-content>
+    </div>
+</div>
+<div class="modal pad-10 signup-check-modal" id="checkOurTermsAndConditionsModal" materialize="modal" style="z-index: 1019;">
+	<div class="modal-close-button right"><a><i class="fa fa-times"></i></a></div>
+	<div class="mdl-hdr">
+		<div class="header-content">
+			<h3> {{'Attention'|translate}} </h3>
+        </div>
+	</div>
+	<div class="modal-content"><span></span></div><a class="btn primary-color right">{{'Close'|translate}}</a>
+</div>
+<div class="modal" id="privacyPolicyModal" materialize="modal" style="z-index: 1021;">
+    <div class="mdl-hdr">
+        <div class="header-content">
+            <div class="modal-close-button">
+                <a><i class="fa fa-times"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="modal-content">
+        <app-static-inner-content contentcode="about-us-privacy-policy"></app-static-inner-content>
+    </div>
+</div>

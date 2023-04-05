@@ -1,0 +1,7 @@
+.browser-default{
+  color: black;
+}
+.btn, .btn-large {
+  background: #6dbe45 !important;
+  width: 100%;
+}

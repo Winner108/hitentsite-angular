@@ -1,0 +1,30 @@
+<app-loading-bar *ngIf="isLoading"></app-loading-bar>
+
+  <message-box
+    *ngIf="status.msg != ''"
+    type="{{ status.msgType }}"
+    content="MESSAGES.LOGIN_FAILD"
+    contentText="{{ status.msg }}"
+  ></message-box>
+  <div *ngIf="status.msg == ''">
+    <div class="gm-bx" *ngIf="!isLoading">
+      <div
+        id="lgf-container"
+        style="display: inline-block; width: 100%; height: 678px"
+      >
+        <iframe
+          name="lgf-container"
+          id="lgf-container-iframe"
+          width="100%"
+          height="100%"
+          frameborder="0"
+          allowfullscreen="true"
+          webkitallowfullscreen="true"
+          mozallowfullscreen="true"
+          scrolling="no"
+          [src]="iFrameUrl"
+          *ngIf="displayIFrame"
+        ></iframe>
+      </div>
+    </div>
+  </div>

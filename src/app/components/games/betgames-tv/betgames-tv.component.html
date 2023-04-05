@@ -1,0 +1,23 @@
+
+<div *ngIf="isLogin==false">
+  <div class="flex-container signin-msg-csn mar-bottom-10" >
+    <div class="flex-item">
+      <div message-box content="MESSAGES.LOGIN_TO_PLAY_CASINO" type="info"
+        ><div class="card-panel message-box info">
+          <!----><!----><!---->
+          <div>
+           {{'Please login to play casino games'}}
+            <!---->
+          </div>
+          <!----><!----><!---->
+        </div>
+        </div>
+    </div>
+    <button class="btn t1">{{'Sign In'}}</button>
+  </div>
+</div>
+<div class="gm-bx">
+	<div id="lgf-container" style="display: inline-block; width: 100%;height: 678px;">
+		<iframe name="lgf-container" id="lgf-container-iframe" width="100%" height="100%" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no" [src]="createURL()"></iframe>
+	</div>
+</div>

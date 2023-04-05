@@ -1,0 +1,78 @@
+<div style="width: 500px">
+
+  <div class="flex-item">
+    <div>
+      <div class="bnk-inf-fld bnk-fisrts">
+        <h3 title="">{{ 'Add new ticket' | translate}}</h3>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="data.id>0">
+  <div  style="padding: 10px;border: 1px solid #dddd;">
+    Tarih : {{ticket.ticket.created_at}} Durum :  {{ticket.ticket.status_name}}
+    <br>
+      Mesaj : {{ticket.ticket.message}}
+
+  </div>
+  <div *ngFor="let ticket1 of ticket.tickets" style="    padding: 10px;
+  border: 1px solid #4a812f;
+  margin-top: 5px;
+  margin-left: 25px;">
+    Tarih : {{ticket1.created_at}} Kullanıcı :  {{ticket1.admin?.username??ticket1.user?.username}}
+    <br>
+      Mesaj : {{ticket1.message}}
+
+  </div>
+</div>
+  <message-box
+    *ngIf="status.msg != ''"
+    type="{{ status.msgType }}"
+    content="MESSAGES.LOGIN_FAILD"
+    contentText="{{ status.msg }}"
+  ></message-box>
+  <div>
+    <div class="money-list-cont">
+
+        <div autocapitalize="none" class="select-field required" *ngIf="data.id=='0'">
+          <span class="field-label required">{{ "State" | translate }} </span>
+          <select
+            name="state"
+            class="browser-default"
+            [(ngModel)]="payment.state"
+            id="state"
+            required
+
+          >
+            <option value="1" selected>{{'Other' |translate}}</option>
+            <option value="2">{{'Finance' |translate}}</option>
+            <option value="3">{{'Casino' |translate}}</option>
+            <option value="4">{{'Suggestion' |translate}}</option>
+          </select>
+        </div>
+
+
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required"
+            >{{ "Message" | translate }}
+          </span>
+          <textarea
+            style="background: #fff;color: #000;"
+            id="message"
+            name="message"
+            [(ngModel)]="payment.message"
+rows="3"
+          ></textarea>
+
+        </div>
+
+
+    </div>
+
+
+      <div autocapitalize="none" class="input-field required">
+      <button class="btn primary-color" (click)="onSubmit()">
+        {{ "Save" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

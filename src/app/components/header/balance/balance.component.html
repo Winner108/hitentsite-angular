@@ -1,0 +1,21 @@
+<a class="waves-effect balance-dropdown-main waves-light dropdown-button" materialize="dropdown" data-activates="balance-drop-2">
+    <i class="material-icons pg-icons left">person</i>
+    <span title="Main Balance">{{getUser().balance}}</span>
+    <span class="currency-symbol">₺</span>
+    <i class="fa fa-refresh fa-fw pg-icons refresh-icon" title="{{'Refresh Balance'|translate}}" (click)="getProfile()"></i>
+    <i class="material-icons pg-icons right" title="Other Balances">arrow_drop_down</i>
+</a>
+<div class="dropdown-content balance-dropdropdown" id="balance-drop-2" style="left: auto;">
+    <div class="balance-main">
+        <div class="balance-head"> {{'Show Balance'|translate}} </div>
+        <div class="balance-content">
+            <div class="blance-text"> {{getUser().username}}</div>
+            <div class="blance-text date"> {{'Last Login Date:'|translate}} <span class="right">{{getUser().last_login}}</span></div>
+            <div class="blance-text blc-color"> {{'Balance'|translate}} <span class="right">{{getUser().balance}} <span class="currency-symbol">₺</span><i class="fa fa-refresh pg-icons right"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="balance-footer">
+        <a class="btn logout" href="javascript:;" (click)="logout()">{{'Logout'|translate}}</a>
+    </div>
+</div>

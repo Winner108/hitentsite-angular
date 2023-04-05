@@ -1,0 +1,5 @@
+
+<app-loading-bar *ngIf="isLoading"></app-loading-bar>
+<message-box *ngIf="status.msg != ''" type="{{status.msgType}}" content="MESSAGES.LOGIN_FAILD" contentText="{{status.msg}}"></message-box>
+<div id="lgf-container" *ngIf="!isLoading"></div>
+

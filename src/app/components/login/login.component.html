@@ -1,0 +1,19 @@
+<form class="login-form" novalidate="">
+	<div class="title"> {{'Login' | translate}}  </div>
+	<div class="lg-frm-content">
+		<input class="validate browser-default" required="" type="text" placeholder="{{'Username' | translate}}" [(ngModel)]="username" name="username">
+		<div class="input-field password">
+			<input class="validate browser-default" required="" type="password" placeholder="{{'Password' | translate}}" [(ngModel)]="password" name="password">
+		</div>
+		<message-box *ngIf="status.msg != ''" type="{{status.msgType}}" content="MESSAGES.LOGIN_FAILD" contentText="{{status.msg}}"></message-box>
+		<button class="btn sgn-btn" (click)="login()"><i class="material-icons pg-icons">send</i><span>{{'Sign In' | translate}}</span></button>
+		<div class="flex-container ftgtpass-nwacc">
+            <a class="btn flex-item ftgtpass" routerLink="/authentication/forgot-password" (click)="closeSigninModal()">
+                <i class="fa fa-key pg-icons"></i> {{'Forgot Password?' | translate}}
+            </a>
+            <a class="btn flex-item nwacc" routerLink="/authentication/signup" (click)="closeSigninModal()">
+                <i class="material-icons pg-icons">content_paste</i> {{'Create new account' | translate}}
+            </a>
+        </div>
+	</div>
+</form>

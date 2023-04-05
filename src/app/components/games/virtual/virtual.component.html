@@ -1,0 +1,23 @@
+<app-loading-bar *ngIf="isLoading"></app-loading-bar>
+<div class="e-sport-bg">
+    <div class="container casino-cntr" *ngIf="!isLoading">
+        <div *ngFor="let games of data" class="row">
+            <div class="col s12 right-content">
+                <div class="flex-container clear"><h4 class="rtitle flex-item"> {{games.name}} </h4></div>
+            </div>
+            <div class="gm-cntr">
+                <div class="row">
+                    <div *ngFor="let game of games.games" class="col pg-grd-6 csn-crd-col">
+                        <a class="csn-crd" href="javascript:;" (click)="playGame(game.id, game.name)" title="{{game.name}}">
+                            <div class="crd-img">
+                                <img alt="" class="gm-img" src="{{game.image}}">
+                                <img alt="" class="gm-img loading" src="{{static}}assets/images/loading.gif">
+                            </div>
+                            <div class="crd-nm"> {{game.name}} </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

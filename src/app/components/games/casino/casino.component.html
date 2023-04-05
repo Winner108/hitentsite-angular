@@ -1,0 +1,107 @@
+<div class="tckn-verification-modal modal modal-md open" materialize="modal" style="z-index: 1041;">
+    <tckn-verification type="openGame"></tckn-verification>
+</div>
+<div class="page-casino casino-bg">
+    <slider></slider>
+    <app-loading-bar *ngIf="isLoading"></app-loading-bar>
+    <app-static-inner-content contentcode="casino"></app-static-inner-content>
+    <div class="container casino-cntr" id="p-csn" *ngIf="!isLoading">
+        <div class="row">
+            <div class="col s2 left-content">
+                <app-static-inner-content contentcode="casino-left-top"></app-static-inner-content>
+                <h4 class="ltitle truncate" title="{{gameCnt}}/{{(games || []).length}} {{'Game'|translate}}"><span class="count">{{gameCnt}}/{{(games || []).length}}</span>{{'Game'|translate}} </h4>
+                <div>
+                    <div class="input-field search-cntr"><i class="material-icons pg-icons prefix">search</i>
+                      <input class="browser-default" type="text" placeholder="{{'Find a Game'| translate}}" (change)="filterByText()" [(ngModel)]="searchText">
+                    </div>
+                    <div class="collection">
+                        <app-category-container [categories]="categories" (category)="filterByCategory($event)"></app-category-container>
+                    </div>
+                </div>
+                <app-static-inner-content contentcode="casino-left-bottom"></app-static-inner-content>
+            </div>
+            <div class="col right-content s10" id="casino-right">
+                <div class="flex-container clear  csn-rtitle-wrap">
+                    <h4 class="rtitle flex-item"> {{category ? category.name : 'All'|translate}} </h4>
+                    <div class="casino-filters">
+                        <!-- <a class="btn view-btns list left" href="javascript:;" title="{{'Show as List'|translate}}" (click)="isListView = !isListView"><i class="material-icons pg-icons">view_list</i></a> -->
+                        <select class="browser-default order left" (change)="orderBy()" [(ngModel)]="orderByValue">
+                            <option disabled="" selected="selected" value="0">{{'Order'|translate}}</option>
+                            <option value="1">{{'Default'|translate}}</option>
+                            <option value="2">{{'A-Z'|translate}}</option>
+                        </select>
+                        <select class="browser-default method left" #t (change)="updateGamePlayWay(t.value)">
+                            <option selected="selected" value="1">{{'Inline'|translate}}</option>
+                            <option value="2">{{'Popup'|translate}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="gm-wrap">
+                    <div class="flex-container clear vendor-t-c crsr-pntr">
+                        <div class="vendor-title flex-item"> {{'Vendor'|translate}} </div>
+                        <a class="vendors-toggle-btn btn" href="javascript:;" (click)="showProviders = !showProviders">
+                            <i class="fa fa-plus-circle pg-icons" [ngClass]="{
+                                'hide': showProviders
+                            }"></i>
+                            <i class="fa fa-minus-circle pg-icons" [ngClass]="{
+                                'hide': !showProviders
+                            }"></i>
+                        </a>
+                    </div>
+                    <app-horizontal-scroll *ngIf="showProviders" pathcode="casino" (provider)="filterByProvider($event)"></app-horizontal-scroll>
+                    <div class="gm-cntr">
+                        <div class="row">
+                            <!-- <ng-template *ngIf="!isListView"> -->
+                                <div *ngFor="let game of games" class="col pg-grd-5 csn-crd-col">
+                                    <div class="csn-crd">
+                                        <div class="crd-img">
+                                            <img class="gm-img" src="{{game.image}}" alt="{{game.name}}">
+                                            <img alt="" class="gm-img loading" src="{{static}}assets/images/loading.gif">
+                                            <div class="inf">
+                                                <div class="new" *ngIf="game.is_new">{{'New' | translate}}</div>
+                                                <div class="popular" *ngIf="game.is_popular">{{'Popular' | translate}}</div>
+                                            </div>
+                                            <app-user-favorite classes="fvrt-lnk left"></app-user-favorite>
+                                            <div class="vndr">
+                                                <!-- <img alt="" class="vndr-lg" src="{{static}}assets/images/casino/32x32/egt.png"> -->
+                                            </div>
+                                            <div class="hvr-inf">
+                                                <div class="v-a">
+                                                    <div class="rpt-rw">
+                                                        <a class="btn real" href="javascript:;" (click)="playGame(game.id, game.name)"> {{'Play Online'|translate}} </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="crd-nm">
+                                            <span class="display-block">{{game.name}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- </ng-template> -->
+                            <div *ngIf="isListView" class="gm-list-view">
+                                <ul>
+                                    <li *ngFor="let game of games" class="pg-grd-5 flex-container">
+                                        <a href="javascript:;" title="{{game.name}}">
+                                            <img align="left" alt="" src="//v3.pronetstatic.com/common/assets/images/livecasino/22x22/evo.png">
+                                            <span class="truncate"> {{game.name}} </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s6">
+                                <button class="btn sw-mr" (click)="showLess()" [disabled]="isShowLessButtonDisabled"> {{'Show Less' | translate}} </button>
+                            </div>
+                            <div class="col s6">
+                                <button class="btn sw-mr btn-show-more" (click)="showMore()" [disabled]="isShowMoreButtonDisabled"> {{'Show more' | translate}} </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-static-inner-content contentcode="casino-bottom"></app-static-inner-content>
+    </div>
+</div>

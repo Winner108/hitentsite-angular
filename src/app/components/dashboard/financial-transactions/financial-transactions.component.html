@@ -1,0 +1,99 @@
+<div class="trnsctn-hstry-cntnt">
+	<app-static-inner-content contentcode="financial-transactions-top"></app-static-inner-content>
+	<div class="dshbrd-mdl">
+		<div class="mdl-hdr">
+			<div class="inf-hdr"><i class="fa fa-history"></i><span class="inf-title">{{'Transactions'|translate}}</span></div>
+		</div>
+		<div class="mdl-cntnt">
+			<form novalidate="" class="ng-untouched ng-pristine ng-valid">
+				<div class="row">
+					<div class="col s12">
+						<h5 class="frm-hdr">{{'Please select a date range'|translate}}</h5></div>
+				</div>
+				<div class="row">
+					<div class="date-picker-field col s2">
+						<label class="field-label active">(DD.MM.YYYY)</label>
+						<label class="date-picker-mask active" for="transactionHistoryStartDatePicker">
+							<input id="transactionHistoryStartDatePicker" materialize="pickadate" tabindex="-1" type="text" readonly="">
+							<i aria-hidden="true" class="fa fa-calendar" (click)="openStartPicker()"></i>
+						</label>
+						<input class="datepicker browser-default" minlength="10" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" required="" tabindex="1" type="text" #startDate>
+					</div>
+					<div class="date-picker-field col s2">
+						<label class="field-label active">(DD.MM.YYYY)</label>
+						<label class="date-picker-mask active" for="transactionHistoryEndDatePicker">
+							<input id="transactionHistoryEndDatePicker" materialize="pickadate" tabindex="-1" type="text" readonly="">
+							<i aria-hidden="true" class="fa fa-calendar" (click)="openEndPicker()"></i>
+						</label>
+						<input class="datepicker browser-default" minlength="10" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" required="" tabindex="2" type="text" #endDate>
+					</div>
+					<div class="input-field col s2">
+						<button class="btn w100" (click)="getAllTransactionHistory(startDate.value, endDate.value)">{{'Search'|translate}}</button>
+					</div>
+				</div>
+			</form>
+			 <div class="type-btn-grp">
+				<button class="btn bg stts- fltr-btn active"  (click)="status='';getAllTransactionHistory(startDate.value, endDate.value)"><i class="stts- fa fa-bars"></i><i class="stts-" >{{'All'| translate}}</i></button>
+        <button class="btn bg stts- fltr-btn active"  (click)="status='finance';getAllTransactionHistory(startDate.value, endDate.value)"><i class="stts- fa fa-bars"></i><i class="stts-" >{{'Finance'| translate}}</i></button>
+        <button class="btn bg stts- fltr-btn active"  (click)="status='game';getAllTransactionHistory(startDate.value, endDate.value)"><i class="stts- fa fa-bars"></i><i class="stts-" >{{'Game'| translate}}</i></button>
+			</div>
+		</div>
+	</div>
+	<div class="dshbrd-mdl">
+		<div class="mdl-hdr">
+
+			<div class="inf-hdr"><i class="fa fa-bars"></i><span class="inf-title">{{'Transactions'|translate}}</span></div>
+
+		</div>
+		<div class="mdl-cntnt">
+			<div class="scrllble-tbl">
+				<table class="highlight dshbrd-tbl bet-history-table">
+					<thead>
+						<tr>
+
+							<th><span name="transactionDate">Tarih</span></th>
+							<th><span name="transactionTypeName">İşlem Tipi</span></th>
+							<th><span name="transactionAmount">Tutar</span></th>
+							<th><span name="status">Açıklama</span></th>
+
+						</tr>
+					</thead>
+					<tbody *ngIf="data">
+						<tr *ngFor="let history of data.transactions.data">
+							<td><span name="transactionDate">{{history.updated_at}}</span></td>
+							<td><span name="transactionTypeName">{{history.type_name}}</span></td>
+							<td><span name="transactionAmount" [ngClass]="{'text-green': history.amount > '0', 'text-red' : history.amount < '0' }">{{history.amount}}</span></td>
+
+              <td><span name="status">
+                <div *ngIf="history.payment_transaction"> {{history.payment_transaction?.payment_method?.title}}
+                  (
+                {{history.payment_transaction?.status_name}})
+                <div *ngIf="history.payment_transaction?.data?.why_reject">
+                  Red Nedeni : {{history.payment_transaction?.data?.why_reject}}
+                </div>
+              </div>
+              <div *ngIf="history.game">{{history.game?.name}} ( {{history.provider?.name}} )</div>
+                </span></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<message-box *ngIf="!data || data.transactions.data.length == 0" content="MESSAGES.NO_DATA_FOUND" icon="fa fa-exclamation-circle" type="error"></message-box>
+			<ul class="pagination" *ngIf="data">
+				<li [ngClass]="{
+					'disabled': !data.transactions.links[0]?.url
+				}"><a href="javascript:;" (click)="gotoPage(currentPage - 1)"><i class="material-icons">chevron_left</i></a></li>
+				<li *ngFor="let page of pages" [ngClass]="{
+					'active': page == data.transactions.current_page
+				}">
+					<a href="javascript:;" (click)="gotoPage(page)">{{page}}</a>
+				</li>
+				<li [ngClass]="{
+					'disabled': !data.transactions.links[2]?.url
+				}"><a href="javascript:;" (click)="gotoPage(currentPage + 1)"><i class="material-icons">chevron_right</i></a></li>
+			  </ul>
+		</div>
+	</div>
+	<div class="modal modal-sm dshbrd-tckt-modal" id="transactionHistoryModal123" materialize="modal" style="z-index: 1029;">
+	</div>
+</div>

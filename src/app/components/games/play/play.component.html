@@ -1,0 +1,32 @@
+<div class="casino-detail-bg game-id">
+    <div class="casino-detail-cntr" [ngClass]="{
+        'full-screen-wrapper': isFullScreen,
+        'inline-screen-wrapper': isFullScreen
+    }">
+    <message-box *ngIf="status.msg != ''" type="{{status.msgType}}" content="MESSAGES.LOGIN_FAILD" contentText="{{status.msg}}"></message-box>
+        <div class="gm-bx-l">
+            <div class="title flex-container">
+                <div class="flex-item txt">
+                    <span class="ctry-n" *ngIf="type == 'casino'"> {{'Casino'|translate}} </span>
+                    <span class="ctry-n" *ngIf="type == 'livecasino'"> {{'Live Casino'|translate}} </span>
+                    <span class="ctry-n" *ngIf="type == 'virtuals'"> {{'Virtuals'|translate}} </span>
+                    <span class="ctry-n" *ngIf="type == 'special'"> {{'Special'|translate}} </span>
+                    <span class="gm-n"> {{name}} </span></div>
+                <div class="gm-acn">
+                    <a class="btn popup" routerLink="/dashboard/payments/deposit-money">
+                        <i class="material-icons pg-icons">account_balance</i>
+                    </a>
+                    <a class="btn popup" href="javascript:;" (click)="isFullScreen = !isFullScreen">
+                        <i class="fa fa-external-link pg-icons"></i>
+                    </a>
+                    <a class="btn refresh" href="javascript:;" (click)="refresh()">
+                        <i class="fa fa-refresh pg-icons"></i>
+                    </a>
+                    <a class="btn close" routerLink="/games/{{type}}"><i class="material-icons pg-icons">close</i></a></div>
+            </div>
+            <div class="gm-bx" style="height: 768px;">
+                <iframe allowfullscreen="true" *ngIf="displayIFrame" frameborder="0" width="100%" height="768" [src]="iFrameUrl"  style="max-width: 100%;"></iframe>
+            </div>
+        </div>
+    </div>
+</div>

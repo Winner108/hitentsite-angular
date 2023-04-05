@@ -1,0 +1,24 @@
+<div extroutelink="" style="position: relative;">
+    <!-- StyleSheet dosyaları -->
+    <!-- masterslider -->
+    <div id="masterslider"></div>
+    <!--  masterslider -->
+    <!--  payments -->
+    <div class="payment_icons">
+        <div class="payment_icons_container">
+            <a *ngFor="let paymentIcon of paymentBanners" href="{{paymentIcon.url}}">
+                <figure> <img src="{{server +'/'+ paymentIcon.image}}">
+                </figure>
+            </a>
+        </div>
+    </div>
+    <!--  payments -->
+    <!--  games -->
+    <div class="games_icons">
+        <div class="games_icons_container">
+            <a *ngFor="let bottomIcon of bottomBanners" href="{{bottomIcon.url}}">
+                <figure> <img src="{{server +'/'+ bottomIcon.image}}"> </figure>
+            </a>
+        </div>
+    </div>
+</div>

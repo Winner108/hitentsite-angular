@@ -1,0 +1,20 @@
+<div class="bubble-vldtr right">
+    <ul class="vldtr-lst">
+        <li [ngClass]="{
+            'valid': checkUpperCase(),
+            'invalid': !checkUpperCase()
+        }"><i class="fa fa-check-circle-o"></i><span>Your password must contain at least 1 uppercase letters. </span></li>
+        <li [ngClass]="{
+            'valid': checkLowerCase(),
+            'invalid': !checkLowerCase()
+        }"><i class="fa fa-check-circle-o"></i><span>Your password must contain at least 1 lowercase letters. </span></li>
+        <li [ngClass]="{
+            'valid': checkNumber(),
+            'invalid': !checkNumber()
+        }"><i class="fa fa-check-circle-o"></i><span>Your password must contain at least 1 numeric value. </span></li>
+        <li [ngClass]="{
+            'valid': password.length >= 8,
+            'invalid': password.length < 8
+        }"><i class="fa fa-check-circle-o"></i><span>Your password must contain at least 8 character. </span></li>
+    </ul>
+</div>

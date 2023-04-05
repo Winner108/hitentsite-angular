@@ -1,0 +1,35 @@
+<div class="user-security-cntnt">
+	<div class="dshbrd-mdl ">
+		<div class="mdl-hdr">
+			<div class="inf-hdr"><i class="fa fa-qrcode fa-fw"></i><span class="inf-title">Two step verification</span></div>
+		</div>
+		<div class="mdl-cntnt">
+			<app-static-inner-content contentcode="otp_info"></app-static-inner-content>
+			<div class="radio-field">
+				<h5 class="radio-hdr">Verified Type</h5>
+				<div class="radio-cntnt">
+					<div class="radio-grp">
+						<input id="GA" name="twoStepAuthentication" type="radio" value="smsValidation">
+						<label for="GA">Google Authenticator</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal modal-sm open dshbrd-modal" id="smsModal" materialize="modal" style="z-index: 1033;">
+	<div class="modal-content">
+		<div class="modul-accordion">
+			<div class="modal-close-button"><a><i class="fa fa-times right"></i></a></div>
+		</div>
+		<div class="modul-content"><b>Please enter the passcode that was sent to your phone number saved in the system</b>
+			<form novalidate="" class="ng-untouched ng-pristine ng-invalid">
+				<div class="input-field">
+					<input class="browser-default ng-untouched ng-pristine ng-invalid" id="SmsCode" maxlength="6" name="smsCode" required="" type="password" placeholder="SMS passcode">
+				</div>
+				<div class="remaning-time-cntnt"><span class="remaning-time"> Remaning time: 0 sn. </span><a class="right" href="javascript:;"> Send me SMS passcode again <i class="fa fa-refresh fa-fw"></i></a></div>
+				<button class="btn" type="submit" disabled="">Finish Transaction</button>
+			</form>
+		</div>
+	</div>
+</div>

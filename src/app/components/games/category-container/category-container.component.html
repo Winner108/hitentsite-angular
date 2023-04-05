@@ -1,0 +1,5 @@
+<a *ngFor="let category of categories;let index = index" class="collection-item" href="javascript:;" (click)="filter(category)" [ngClass]="{
+    'active': (currentId == 0 && index == 0) || currentId == category.id
+}">
+    <i class="material-icons left">stars</i> {{category.name}} <span class="secondary-content count">{{category.count}}</span>
+</a>

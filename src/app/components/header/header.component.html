@@ -1,0 +1,158 @@
+<header class="clear" header-resize="" id="header">
+	<div class="hdr-cntr">
+		<div class="hdr-cntr-first-row fix-hide">
+			<div class="container-90">
+				<div class="hdr-first-row-wrapper">
+					<div class="left">
+						<a class="lg-cntr left" name="logo" routerLink="/">
+                            <img class="lg" src="{{static}}assets/images/logo.gif" alt="betgaranti">
+                        </a>
+					</div>
+					<div class="hdr-second-right">
+						<div class="logout-menu right">
+              <a class="affilates-btn" href="https://casinobonustalep.com/" target="_blank"> Hızlı Bonus Al </a>
+							<div class="flex-container fix-hide">
+								<language></language>
+							</div>
+						</div>
+						<div class="hdr-usr-mn right">
+							<div *ngIf="!currentUser" class="logout-menu right">
+
+								<a class="htd-btn" routerLink="/contents/how-to-deposit"> {{'How to Deposit'|translate}} </a>
+								<a class="login-btn" href="javascript:;" (click)="openSigninModal()"> {{'Sign In'|translate}} </a>
+								<a class="register-btn" routerLink="/authentication/signup"> {{'Register'|translate}} </a>
+							</div>
+							<div *ngIf="currentUser" class="login-menu right">
+								<ul class="clear">
+									<li><a class="right left-tip" id="search-open-icon"><i class="material-icons secondary-color-text">search</i></a></li>
+									<li><a class="htd-btn" routerLinkActive="active" routerLink="/contents/how-to-deposit"> {{'How to Deposit'|translate}} </a></li>
+									<li></li>
+									<li>
+										<balance></balance>
+									</li>
+									<li class="fix-hide">
+										<a class="collection-item" routerLinkActive="active" routerLink="/dashboard/payments/deposit-money"> {{'Deposit'|translate}} </a>
+									</li>
+
+									<li class="fix-hide">
+										<a class="waves-effect waves-light modal-trigger" href="javascript:;">
+											<i class="material-icons pg-icons">stars</i>
+										</a>
+									</li>
+									<li>
+										<a class="dropdown-button" data-activates="settings-drop" href="javascript:;" materialize="dropdown">
+											<i class="material-icons pg-icons">settings</i>
+										</a>
+										<div class="dropdown-content" id="settings-drop" style="margin-right: 460px;left:auto;" >
+											<div class="content flex-container align-items-res">
+												<ul class="collection with-header">
+													<li class="collection-header">
+														<h6><i class="fa fa-angle-double-down pg-icons left"></i> {{'My Account'|translate}} </h6>
+													</li>
+													<a class="collection-item" routerLinkActive="active" routerLink="/dashboard/payments/deposit-money">
+														<i class="fa fa-angle-right fa-fw pg-icons"></i> {{'Deposit'|translate}}
+													</a>
+													<a class="collection-item" routerLinkActive="active" routerLink="/dashboard/payments/withdraw-money">
+														<i class="fa fa-angle-right fa-fw pg-icons"></i> {{'Money Withdrawal'|translate}}
+													</a>
+
+												</ul>
+												<ul class="collection with-header">
+													<li class="collection-header">
+														<h6><i class="fa fa-angle-double-down pg-icons left"></i> {{'Transactions'|translate}} </h6>
+													</li>
+													<a class="collection-item" routerLinkActive="active" routerLink="/dashboard/account-activity/financial-transactions">
+														<i class="fa fa-angle-right fa-fw pg-icons"></i> {{'Financial Transactions'|translate}}
+													</a>
+												</ul>
+												<ul class="collection with-header">
+													<li class="collection-header">
+														<h6><i class="fa fa-angle-double-down pg-icons left"></i> {{'User Actions'|translate}} </h6>
+													</li>
+													<a class="collection-item" routerLinkActive="active" routerLink="/dashboard/user-info/personal-and-account-detail">
+														<i class="fa fa-angle-right fa-fw pg-icons"></i> {{'Personal Information'|translate}}
+													</a>
+													<a class="collection-item" routerLinkActive="active" routerLink="/dashboard/user-info/change-password">
+														<i class="fa fa-angle-right fa-fw pg-icons"></i> {{'Change Password'|translate}}
+													</a>
+													<a class="collection-item" routerLinkActive="active" routerLink="/dashboard/tickets">
+														<i class="fa fa-angle-right fa-fw pg-icons"></i> {{'Messages'|translate}}
+													</a>
+												</ul>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="hdr-cntr-second-row clear">
+			<div class="container-90" id="menu-wrapper">
+				<a class="lg-cntr left fix-show" name="logo" style="display: none" routerLink="/"><img class="lg" src="{{static}}assets/images/logo.gif" alt="betgaranti"></a>
+				<div class="mn-menu-wrapper">
+					<div class="mn-menu left">
+						<ul class="clear" data-element="mn-cont">
+							<li data-order="4">
+								<a routerLinkActive="active" routerLink="/games/livecasino">
+									<i class="svg-font-icons main-menu-icons-mr-canli-casino pg-icons fix-hide"></i> {{'Live Casino'|translate}}
+								</a>
+							</li>
+							<li data-order="5">
+								<a routerLinkActive="active" routerLink="/games/casino">
+									<i class="svg-font-icons main-menu-icons-mr-casino pg-icons fix-hide"></i> {{'Casino'|translate}}
+								</a>
+							</li>
+							<li data-order="6">
+								<a routerLinkActive="active" routerLink="/games/virtuals">
+									<i class="svg-font-icons sport-icon-set1-wc fix-hide pg-icons left"></i> {{'Virtual Games'|translate}}
+								</a>
+							</li>
+							<li data-order="7">
+								<a routerLinkActive="active" routerLink="/games/bingo">
+									<i class="svg-font-icons sport-icon-set1-bingo pg-icons fix-hide"></i> {{'Live Bingo'|translate}}
+								</a>
+							</li>
+							<li data-order="7">
+								<a routerLinkActive="active" routerLink="/games/special">
+									<i class="svg-font-icons main-menu-icons-mr-canli pg-icons fix-hide"></i> {{'Games'|translate}}
+								</a>
+							</li>
+							<li data-order="11">
+								<a routerLinkActive="active" routerLink="/games/lobby">
+									<i class="fa fa-television pg-icons fix-hide"></i> {{'Live Game'|translate}}
+								</a>
+							</li>
+							<li data-order="10">
+								<a routerLinkActive="active" routerLink="/contents/promotions">
+									<i class="main-menu-icons-mr-promotions pg-icons icon fix-hide"></i> {{'Promotions'|translate}}
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div  *ngIf="!currentUser" class="hdr-usr-mn right" data-element="usr-mn">
+						<div class="logout-menu right  fix-show" style="display: none">
+							<a class="login-btn" href="javascript:;"> {{'Login'|translate}} </a>
+							<a class="register-btn" routerLink="/authentication/signup"> {{'Register'|translate}} </a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<nav class="fix-hide" id="navbar-bottom">
+			<div class="container-90">
+				<ul class="left-menu">
+					<li><a routerLinkActive="active" routerLink="/contents/how-to-deposit">{{'How to Deposit'|translate}}</a></li>
+				</ul>
+				<div class="footer-social right">
+					<social-links classes=" "></social-links>
+				</div>
+			</div>
+		</nav>
+		<!---->
+	</div>
+	<!---->
+	<app-static-inner-content contentcode="header-static"></app-static-inner-content>
+</header>

@@ -1,0 +1,64 @@
+<app-loading-bar *ngIf="isLoading"></app-loading-bar>
+<ng-container *ngIf="content == 'promotions' && !isLoading">
+    <a  class="promo-how-to"  href="https://casinobonustalep.com/" target="_blank">
+        <img src="{{static}}assets/images/promo-how-to.jpg" style="width: 100%" >
+    </a>
+
+  <div class="promotions-container">
+    <div class="promotions-header">
+      <div class="promotions-filter">
+        <ul>
+          <li>
+            <a
+              href="javascript:;"
+              data-filter="all"
+              class="mixitup-control-active"
+              >{{ "ALL" | translate }}</a
+            >
+          </li>
+        </ul>
+      </div>
+      <a href="/contents/promotions-general-rules" class="general-rules">{{
+        "BONUS GENERAL TERMS AND CONDITIONS" | translate
+      }}</a>
+    </div>
+    <div class="promotions" data-ref="promotions_container" id="MixItUp46BBCD">
+      <a
+        *ngFor="let promotion of promotions; let index = index"
+        class="mix yatirim top-layer"
+        href="javascript:;"
+        (click)="showContentModal(promotion.content)"
+      >
+        <img src="{{ server + '/' + promotion.image }}" />
+      </a>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="content == 'how-to-deposit'">
+  <div extroutelink="">.</div>
+  <div></div>
+</ng-container>
+<ng-container
+  *ngIf="content != 'promotions'"
+  style="padding: 15px; color: #fff"
+>
+  <style type="text/css">
+    .cercevem {
+      width: 100%;
+      padding: 0px 0px 0px 0px;
+      background: url(http://v3.pronetstatic.com/betgaranti/upload_files/repback02.png);
+      background-repeat: repeat;
+      border-radius: 25px;
+      border: solid 2px #171c2c;
+      float: left;
+      transition: all ease 0.3s;
+      color: #fff;
+    }
+    .cercevem .icerigi {
+      padding: 15px 15px 15px 15px;
+    }
+  </style>
+  <div class="cercevem">
+    <div [innerHTML]="content_data || ''" class="icerigi"></div>
+  </div>
+</ng-container>

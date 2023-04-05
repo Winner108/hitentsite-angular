@@ -1,0 +1,6 @@
+<div class="card-panel message-box {{type}}">
+    <div class="icon left"><i class="fa fa-check-circle pg-icons"></i></div>
+    <div *ngIf="content == 'MESSAGES.LOGIN_FAILD'"> {{contentText | translate}} </div>
+    <div *ngIf="content == 'MESSAGES.NO_VENDOR_LIMIT'"> {{'No matching table for your currency.' | translate}}</div>
+    <div *ngIf="content == 'MESSAGES.NO_DATA_FOUND'"> {{'No found data.' | translate}}</div>
+</div>

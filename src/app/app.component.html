@@ -1,0 +1,17 @@
+<app-loading-screen *ngIf="showOverlay; else main"></app-loading-screen>
+<ng-template #main>
+    <div id="sticky-container">
+        <app-header></app-header>
+        <main>
+            <router-outlet></router-outlet>
+        </main>
+        <app-footer></app-footer>
+    </div>
+    <div materialize="modal" id="sgn-mdl" class="modal">
+        <a class="modal-action modal-close" href="javascript:;"><i class="material-icons pg-icons">close</i></a>
+        <div class="modal-content">
+            <app-login></app-login>
+        </div>
+    </div>
+    <div  bind-innerHTML="htmlVariable"></div>
+</ng-template>

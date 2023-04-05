@@ -1,0 +1,201 @@
+body#trader-master-betgaranti, body.loaded {
+    background: inherit;
+    background-color: #1c2c43 !important;
+}
+
+.to-top-scroll {
+    position: fixed;
+    right: 10px;
+    bottom: 80px;
+}
+
+#navbar-top .gecis.logo :hover {
+    background-position: 0 0 !important;
+}
+
+#footer .footer-copyright, #footer .footer-copyright-2 {
+    padding: 0;
+}
+
+#footer .footer-copyright .container, #footer .footer-copyright-2 .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    width: 100%;
+}
+
+#footer .footer-copyright .container {
+	justify-content: center;
+}
+
+#footer .footer-copyright .container i {
+	margin: 0 20px;
+}
+
+#footer .footer-copyright-2 {
+	padding: 100px 0 20px 0;
+}
+
+#footer .footer-copyright {
+	padding: 0 0 100px 0;
+}
+
+#navbar-top .gecis.logo:hover {
+    background-position: 0 0;
+}
+
+#footer ul.footer-social li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    float: inherit;
+    border-radius: 100%;
+}
+
+#footer ul.footer-social li {
+    margin: 0 10px;
+}
+
+#footer .footer-copyright i, #footer .footer-copyright-2 i {
+    margin: 0;
+}
+
+footer.page-footer {
+    padding-top: 0;
+}
+
+.container.promotions {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	max-width: 100%;
+}
+
+.container.promotions #page-content {
+	padding: 0;
+	margin: 0;
+	background: url(../images/games-background.jpg) center repeat-y;
+}
+
+.container.promotions #page-content .promo-how-to {
+	width: 100%;
+}
+
+.container.promotions #page-content .promo-how-to img {
+	width: 100%;
+    display: table;
+}
+
+.promotions-header {
+	background: #8BD54E;
+	border-radius: 43px 43px 0 0;
+	display: flex;
+	justify-content: space-between;
+	padding: 30px 70px;
+	align-items: center;
+}
+
+.promotions-header a.general-rules {
+	background: #75BB3C;
+    box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.4);
+    border-radius: 16px;
+    font-family: 'gilroy-bold';
+    padding: 5px 15px;
+    color: #ffffff;
+}
+
+.promotions-header .promotions-filter {
+	height: 32px;
+	align-items: center;
+	display: flex;
+}
+
+.promotions-header .promotions-filter ul {
+	margin: 0;
+	display: flex;
+}
+
+.promotions-header .promotions-filter ul li {
+	margin-right: 30px;
+}
+
+.promotions-header .promotions-filter ul li a {
+	height: 32px;
+    display: flex;
+    align-items: center;
+	border-radius: 16px;
+	padding: 0 10px;
+	font-family: 'gilroy-bold';
+}
+
+.promotions-header .promotions-filter ul li a.active,
+.promotions-header .promotions-filter ul li a:hover {
+	height: 32px;
+    display: flex;
+    align-items: center;
+	background: #213753;
+	color: #ffffff;
+}
+
+.promotions-container {
+	width: 1276px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+.promotions-container .promotions {
+	display: flex;
+    padding: 40px 70px;
+	flex-wrap: wrap;
+	background: #213753;
+	margin-bottom: 75px;
+}
+
+.promotions-container .promotions a {
+    width: 370px;
+	margin-bottom: 13px;
+}
+
+.promotions-container .promotions a:nth-child(3n+2) {
+    margin: 0 13px;
+}
+
+.promotions-container .promotions a img {
+    width: 100%;
+    max-width: 370px;
+}
+
+.mixitup-control-active {
+	background: #213753;
+	color: #ffffff;
+}
+
+@media only screen and (max-width: 767px) {
+	.container.promotions #page-content .promo-how-to {
+		display: none;
+	}
+
+	.promotions-container {
+		width: 100%;
+		margin-top: 0;
+	}
+
+	.promotions-header {
+		display: none;
+	}
+
+	.promotions-container .promotions {
+		padding: 40px 20px;
+		margin-bottom: 0;
+	}
+
+	.promotions-container .promotions a:nth-child(3n+2) {
+		margin: 0;
+	}
+
+	footer.page-footer {
+		margin-top: 0;
+	}
+}

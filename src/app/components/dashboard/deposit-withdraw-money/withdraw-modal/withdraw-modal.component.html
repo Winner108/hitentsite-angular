@@ -1,0 +1,611 @@
+<div style="width: 500px">
+  <payment-icon [bank]="data.bank" [type]="data.type"></payment-icon>
+  <div class="flex-item">
+    <div>
+      <div class="bnk-inf-fld bnk-fisrts">
+        <h5 title="{{ data.bank.title }}">{{ data.bank.title }}</h5>
+      </div>
+    </div>
+  </div>
+  <message-box
+    *ngIf="status.msg != ''"
+    type="{{ status.msgType }}"
+    content="MESSAGES.LOGIN_FAILD"
+    contentText="{{ status.msg }}"
+  ></message-box>
+  <div>
+    <div class="money-list-cont">
+      <div *ngIf="data.bank == 'aninda-havale'">
+        <div autocapitalize="none" class="select-field required">
+          <span class="field-label required">{{ "Bank" | translate }} </span>
+          <select
+            name="bank_name"
+            class="browser-default"
+            [(ngModel)]="payment.data.bank_name"
+            id="bank_name"
+            required
+          >
+          <option value="1-Garanti Bankası">Garanti Bankası</option>
+          <option value="2-Akbank">Akbank</option>
+          <option value="3-Deniz Bank">Deniz Bank</option>
+          <option value="4-QNB Finans Bank">QNB Finans Bank</option>
+          <option value="5-Türkiye İş Bankası">Türkiye İş Bankası</option>
+          <option value="7-TEB">TEB</option>
+          <option value="9-Vakıf Bankası">Vakıf Bankası</option>
+          <option value="11-Yapı Kredi">Yapı Kredi</option>
+          <option value="13-Ziraat Bankası">Ziraat Bankası</option>
+          <option value="15-ING Bank">ING Bank</option>
+          <option value="17-Şeker Bank">Şeker Bank</option>
+          <option value="19-Kuveyt Türk">	Kuveyt Türk</option>
+          <option value="23-PTT Bank">PTT Bank</option>
+          <option value="25-Türkiye Finans">Türkiye Finans</option>
+          <option value="27-Halk Bankası">Halk Bankası</option>
+          <option value="30-Albaraka">Albaraka</option>
+          <option value="31-Papara">Papara</option>
+          <option value="32-Enpara">Enpara</option>
+          <option value="33-Aktif bank">Aktif bank</option>
+          <option value="34-CMT cüzdan">CMT cüzdan</option>
+          </select>
+        </div>
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required">{{ "Iban" | translate }} </span>
+          <input
+            class="browser-default place-text"
+            id="ibanno"
+            name="ibanno" prefix="TR" mask="00-0000-0000-0000-0000-0000-00"
+            [(ngModel)]="payment.data.ibanno"
+            type="text"
+            placeholder=""
+            required
+          />
+        </div>
+
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required"
+            >{{ "İsim soyisim" | translate }}
+          </span>
+          <input
+            class="browser-default place-text"
+            id="nameSurname"
+            name="nameSurname"
+            [(ngModel)]="payment.data.nameSurname"
+            type="text"
+            placeholder=""
+            required
+          />
+        </div>
+      </div>
+      <div *ngIf="data.bank == 'aninda-kredi-karti-cekim'">
+        <div autocapitalize="none" class="select-field required">
+          <span class="field-label required">{{ "Bank" | translate }} </span>
+          <select
+            name="bank_name"
+            class="browser-default"
+            [(ngModel)]="payment.data.bank_name"
+            id="bank_name"
+            required
+          >
+          <option value="35-Garanti Bankası">Garanti Bankası</option>
+                        <option value="36-Deniz Bank">Deniz Bank</option>
+                        <option value="37-QNB Finans Bank">QNB Finans Bank</option>
+                        <option value="38-Türkiye İş Bankası">Türkiye İş Bankası</option>
+                        <option value="39-TEB">TEB</option>
+                        <option value="40-Vakıf Bankası">Vakıf Bankası</option>
+                        <option value="41-Ziraat Bankası">Ziraat Bankası</option>
+                        <option value="42-Yapı Kredi">Yapı Kredi</option>
+                        <option value="44-Halk Bankası">Halk Bankası</option>
+          </select>
+        </div>
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required">{{ "Iban" | translate }} </span>
+          <input
+            class="browser-default place-text"
+            id="ibanno"
+            name="ibanno" prefix="TR" mask="00-0000-0000-0000-0000-0000-00"
+            [(ngModel)]="payment.data.ibanno"
+            type="text"
+            placeholder=""
+            required
+          />
+        </div>
+
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required"
+            >{{ "İsim soyisim" | translate }}
+          </span>
+          <input
+            class="browser-default place-text"
+            id="nameSurname"
+            name="nameSurname"
+            [(ngModel)]="payment.data.nameSurname"
+            type="text"
+            placeholder=""
+            required
+          />
+        </div>
+
+
+
+
+      </div>
+      <div *ngIf="data.bank == 'aninda-papara'">
+        <div autocapitalize="none" class="select-field required">
+          <span class="field-label required">{{ "Bank" | translate }} </span>
+          <select
+            name="bank_name"
+            class="browser-default"
+            [(ngModel)]="payment.data.bank_name"
+            id="bank_name"
+            required
+          >
+          <option value="1-Garanti Bankası">Garanti Bankası</option>
+          <option value="2-Akbank">Akbank</option>
+          <option value="3-Deniz Bank">Deniz Bank</option>
+          <option value="4-QNB Finans Bank">QNB Finans Bank</option>
+          <option value="5-Türkiye İş Bankası">Türkiye İş Bankası</option>
+          <option value="7-TEB">TEB</option>
+          <option value="9-Vakıf Bankası">Vakıf Bankası</option>
+          <option value="11-Yapı Kredi">Yapı Kredi</option>
+          <option value="13-Ziraat Bankası">Ziraat Bankası</option>
+          <option value="15-ING Bank">ING Bank</option>
+          <option value="17-Şeker Bank">Şeker Bank</option>
+          <option value="19-Kuveyt Türk">	Kuveyt Türk</option>
+          <option value="23-PTT Bank">PTT Bank</option>
+          <option value="25-Türkiye Finans">Türkiye Finans</option>
+          <option value="27-Halk Bankası">Halk Bankası</option>
+          <option value="30-Albaraka">Albaraka</option>
+          <option value="31-Papara">Papara</option>
+          <option value="32-Enpara">Enpara</option>
+          <option value="33-Aktif bank">Aktif bank</option>
+          <option value="34-CMT cüzdan">CMT cüzdan</option>
+          </select>
+        </div>
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required">{{ "Iban" | translate }} </span>
+          <input
+            class="browser-default place-text"
+            id="ibanno"
+            name="ibanno" prefix="TR" mask="00-0000-0000-0000-0000-0000-00"
+            [(ngModel)]="payment.data.ibanno"
+            type="text"
+            placeholder=""
+            required
+          />
+        </div>
+
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required"
+            >{{ "İsim soyisim" | translate }}
+          </span>
+          <input
+            class="browser-default place-text"
+            id="nameSurname"
+            name="nameSurname"
+            [(ngModel)]="payment.data.nameSurname"
+            type="text"
+            placeholder=""
+            required
+          />
+        </div>
+
+      </div>
+      <div *ngIf="data.bank == 'aninda-mefete'">
+        <div autocapitalize="none" class="select-field required">
+          <span class="field-label required">{{ "Bank" | translate }} </span>
+          <select
+            name="bank_name"
+            class="browser-default"
+            [(ngModel)]="payment.data.bank_name"
+            id="bank_name"
+            required
+          >
+            <option value="1-Mefete" selected>MEFETE</option>
+          </select>
+        </div>
+
+
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required"
+            >{{ "İsim soyisim" | translate }}
+          </span>
+          <input
+            class="browser-default place-text"
+            id="nameSurname"
+            name="nameSurname"
+            [(ngModel)]="payment.data.nameSurname"
+            type="text"
+            placeholder=""
+            required
+          />
+        </div>
+
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required"
+            >{{ "Hesap No" | translate }}
+          </span>
+          <input
+            class="browser-default place-text"
+            id="account_no"
+            name="account_no"
+            [(ngModel)]="payment.data.account_no"
+            type="text"
+            placeholder=""
+            required
+          />
+        </div>
+
+
+      </div>
+
+      <div *ngIf="data.bank == 'maksimefete'|| data.bank == 'maksipapara' || data.bank == 'maksicmt' || data.bank == 'maksipayfix'">
+
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required"
+            >{{ "Hesap No" | translate }}
+          </span>
+          <input
+            class="browser-default place-text"
+            id="account_no"
+            name="account_no"
+            [(ngModel)]="payment.data.account_no"
+            type="text"
+            placeholder=""
+            required
+          />
+        </div>
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required"
+            >{{ "İsim soyisim" | translate }}
+          </span>
+          <input
+            class="browser-default place-text"
+            id="nameSurname"
+            name="nameSurname"
+            [(ngModel)]="payment.data.nameSurname"
+            type="text"
+            placeholder=""
+            required
+          />
+        </div>
+
+      </div>
+      <div *ngIf="data.bank == 'maksicrypto'">
+        <div autocapitalize="none" class="select-field required">
+          <span class="field-label required">{{ "Bank" | translate }} </span>
+          <select
+            name="bank_name"
+            class="browser-default"
+            [(ngModel)]="payment.data.bank_name"
+            id="bank_name"
+            required
+          >
+            <option value="">{{ "Select Bank" | translate }}</option>
+            <option *ngFor="let bank of banks1" value="{{bank.id}}_{{bank.name}}_{{bank.min}}">{{bank.name}}</option>
+          </select>
+        </div>
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required"
+            >{{ "Hesap No" | translate }}
+          </span>
+          <input
+            class="browser-default place-text"
+            id="account_no"
+            name="account_no"
+            [(ngModel)]="payment.data.account_no"
+            type="text"
+            placeholder=""
+            required
+          />
+        </div>
+
+
+      </div>
+      <div *ngIf="data.bank == 'maksibanktransfer'">
+        <div autocapitalize="none" class="select-field required">
+          <span class="field-label required">{{ "Bank" | translate }} </span>
+          <select
+            name="bank_name"
+            class="browser-default"
+            [(ngModel)]="payment.data.bank_name"
+            id="bank_name"
+            required
+          >
+            <option value="">{{ "Select Bank" | translate }}</option>
+            <option *ngFor="let bank of banks1" value="{{bank.id}}_{{bank.name}}_{{bank.min}}">{{bank.name}}</option>
+
+          </select>
+        </div>
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required">{{ "Iban" | translate }} </span>
+          <input
+            class="browser-default place-text"
+            id="ibanno"
+            name="ibanno" prefix="TR" mask="00-0000-0000-0000-0000-0000-00"
+            [(ngModel)]="payment.data.ibanno"
+            type="text"
+            placeholder=""
+            required
+          />
+        </div>
+
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required"
+            >{{ "Şube Kodu" | translate }}
+          </span>
+          <input
+            class="browser-default place-text"
+            id="sube_kodu"
+            name="sube_kodu"
+            [(ngModel)]="payment.data.sube_kodu"
+            type="text"
+            placeholder=""
+            required
+          />
+        </div>
+
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required"
+            >{{ "Hesap No" | translate }}
+          </span>
+          <input
+            class="browser-default place-text"
+            id="account_no"
+            name="account_no"
+            [(ngModel)]="payment.data.account_no"
+            type="text"
+            placeholder=""
+            required
+          />
+        </div>
+
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required"
+            >{{ "TC Kimlik No" | translate }}
+          </span>
+          <input
+            class="browser-default place-text"
+            id="tc_no"
+            name="tc_no"
+            [(ngModel)]="payment.data.tc_no"
+            type="text"
+            placeholder=""
+            required
+          />
+        </div>
+
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required"
+            >{{ "Bir Yakını TC kimlik numarası" | translate }}
+          </span>
+          <input
+            class="browser-default place-text"
+            id="bir_yakini_tc_no"
+            name="bir_yakini_tc_no"
+            [(ngModel)]="payment.data.bir_yakini_tc_no"
+            type="text"
+            placeholder=""
+            required
+          />
+        </div>
+
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required"
+            >{{ "Doğum Tarihi" | translate }}
+          </span>
+          <input
+            class="browser-default place-text"
+            id="dogum_tarihi"
+            name="dogum_tarihi"
+            [(ngModel)]="payment.data.dogum_tarihi"
+            type="text"
+            placeholder="ör:1990-12-25"
+            required
+          />
+        </div>
+
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required"
+            >{{ "Kimlik veriliş / Son kullanma tarihi" | translate }}
+          </span>
+          <input
+            class="browser-default place-text"
+            id="kimlik_verilis_son_kulanma_tarihi"
+            name="kimlik_verilis_son_kulanma_tarihi"
+            [(ngModel)]="payment.data.kimlik_verilis_son_kulanma_tarihi"
+            type="text"
+            placeholder=""
+            required
+          />
+        </div>
+
+
+      </div>
+      <div *ngIf="data.bank == 'bank-transfer'">
+        <div>
+          <a   class="btn success-color " style="    width: auto;margin-bottom: 10px;"  routerLink="/dashboard/banks"  >{{'Add new bank account' | translate}}</a>
+
+        </div>
+        <div autocapitalize="none" class="select-field required">
+          <span class="field-label required">{{ "Bank" | translate }} </span>
+          <select
+            name="bank_id"
+            class="browser-default"
+            [(ngModel)]="payment.bank_id"
+            id="bank_id"
+            required
+          >
+            <option value="0">{{ "Select Bank" | translate }}</option>
+
+            <option *ngFor="let bank of banks" value="{{bank.id}}">{{bank.account_name}} | Hesap no: {{bank.data.account_number}} | iban:{{bank.data.iban}}</option>
+
+          </select>
+        </div>
+
+
+      </div>
+      <div *ngIf="data.bank == 'papara'">
+        <div>
+          <a   class="btn success-color " style="    width: auto;margin-bottom: 10px;"  routerLink="/dashboard/banks"  >{{'Add new bank account' | translate}}</a>
+
+        </div>
+        <div autocapitalize="none" class="select-field required">
+          <span class="field-label required">{{ "Bank" | translate }} </span>
+          <select
+            name="bank_id"
+            class="browser-default"
+            [(ngModel)]="payment.bank_id"
+            id="bank_id"
+            required
+          >
+            <option value="0">{{ "Select Bank" | translate }}</option>
+
+            <option *ngFor="let bank of banks" value="{{bank.id}}">{{bank.account_name}} | Hesap no: {{bank.data.account_number}} </option>
+
+          </select>
+        </div>
+
+
+      </div>
+      <div *ngIf="data.bank == 'bank-transfer1'">
+        <div autocapitalize="none" class="select-field required">
+          <span class="field-label required">{{ "Bank" | translate }} </span>
+          <select
+            name="bank_name"
+            class="browser-default"
+            [(ngModel)]="payment.data.bank_name"
+            id="bank_name"
+            required
+          >
+            <option value="">{{ "Select Bank" | translate }}</option>
+            <option value="Akbank">Akbank</option>
+            <option value="Denizbank">Denizbank</option>
+            <option value="Ziraat Bankası">Ziraat Bankası</option>
+          </select>
+        </div>
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required">{{ "Iban" | translate }} </span>
+          <input
+            class="browser-default place-text"
+            id="ibanno"
+            name="ibanno" prefix="TR" mask="00-0000-0000-0000-0000-0000-00"
+            [(ngModel)]="payment.data.ibanno"
+            type="text"
+            placeholder=""
+            required
+          />
+        </div>
+
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required"
+            >{{ "Şube Kodu" | translate }}
+          </span>
+          <input
+            class="browser-default place-text"
+            id="sube_kodu"
+            name="sube_kodu"
+            [(ngModel)]="payment.data.sube_kodu"
+            type="text"
+            placeholder=""
+            required
+          />
+        </div>
+
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required"
+            >{{ "Hesap No" | translate }}
+          </span>
+          <input
+            class="browser-default place-text"
+            id="account_no"
+            name="account_no"
+            [(ngModel)]="payment.data.account_no"
+            type="text"
+            placeholder=""
+            required
+          />
+        </div>
+
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required"
+            >{{ "TC Kimlik No" | translate }}
+          </span>
+          <input
+            class="browser-default place-text"
+            id="tc_no"
+            name="tc_no" mask="00000000000"
+            [(ngModel)]="payment.data.tc_no"
+            type="text"
+            placeholder=""
+            required
+          />
+        </div>
+
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required"
+            >{{ "Bir Yakını TC kimlik numarası" | translate }}
+          </span>
+          <input
+            class="browser-default place-text"
+            id="bir_yakini_tc_no"
+            name="bir_yakini_tc_no"
+            [(ngModel)]="payment.data.bir_yakini_tc_no"
+            type="text" mask="00000000000"
+            placeholder=""
+            required
+          />
+        </div>
+
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required"
+            >{{ "Doğum Tarihi" | translate }}
+          </span>
+          <input
+            class="browser-default place-text"
+            id="dogum_tarihi"
+            name="dogum_tarihi"
+            [(ngModel)]="payment.data.dogum_tarihi"
+            type="text" mask="0000-00-00"
+            placeholder="ör:YYYY-AA-GG"
+            required
+          />
+        </div>
+
+        <div autocapitalize="none" class="input-field required">
+          <span class="field-label required"
+            >{{ "Kimlik veriliş / Son kullanma tarihi" | translate }}
+          </span>
+          <input
+            class="browser-default place-text"
+            id="kimlik_verilis_son_kulanma_tarihi"
+            name="kimlik_verilis_son_kulanma_tarihi"
+            [(ngModel)]="payment.data.kimlik_verilis_son_kulanma_tarihi"
+            type="text"
+            placeholder=""
+            required
+          />
+        </div>
+
+
+      </div>
+    </div>
+
+      <div autocapitalize="none" class="input-field required">
+        <span class="field-label required">{{ "Amount" | translate }} </span>
+        <input
+          class="browser-default place-text"
+          id="amount"
+          name="amount"
+          [(ngModel)]="payment.amount"
+          type="text"
+          placeholder=""
+          required
+          mask="0*"
+        />
+      </div>
+      <div autocapitalize="none" class="input-field required">
+      <button class="btn primary-color" (click)="onSubmit()">
+        {{ "Create a Withdraw Request" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

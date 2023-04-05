@@ -1,0 +1,86 @@
+<app-loading-bar *ngIf="isLoading"></app-loading-bar>
+<div class="bns-dtl" *ngIf="!isLoading">
+	<div class="dshbrd-mdl">
+		<div class="mdl-hdr">
+			<div class="inf-hdr"><i class="fa fa-user-circle-o"></i><span class="inf-title">Bonuses</span></div>
+		</div>
+		<div class="mdl-cntnt">
+			<div class="scrllble-tbl">
+				<!---->
+				<table class="striped dshbrd-tbl">
+					<thead>
+						<tr>
+							<th>Amount</th>
+							<th>Promotions</th>
+							<th>Live</th>
+							<th>Sport</th>
+							<th>Virtual</th>
+							<th>Max. Event</th>
+							<th>Min Coupon Rate</th>
+							<th>Min Event</th>
+							<th>Min Event Odd</th>
+							<th>Maximum Odd</th>
+							<th>Maximum Coupon Rate</th>
+							<th>Must contain an odd with rate X or over</th>
+							<th>Expiry Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!---->
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="dshbrd-mdl">
+		<div class="mdl-hdr">
+			<div class="inf-hdr"><i class="fa fa-user-circle-o"></i><span class="inf-title">Inactive Bonuses</span></div>
+		</div>
+		<div class="mdl-cntnt">
+			<div class="scrllble-tbl">
+				<!---->
+				<table class="striped dshbrd-tbl inactive-table">
+					<thead>
+						<tr>
+							<th>Amount</th>
+							<th>Promotion</th>
+							<th class="turnOverRate">Bonus Rate(%)</th>
+							<th>Maximum Bonus Win </th>
+							<th>Turn Over Rate</th>
+							<th>Bonus on Betgaranti until</th>
+							<th>Possible last activation date </th>
+							<th>Activate</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="dshbrd-mdl">
+		<div class="mdl-hdr">
+			<div class="inf-hdr"><i class="fa fa-user-circle-o"></i><span class="inf-title">Casino Bonuses</span></div>
+		</div>
+		<div class="mdl-cntnt">
+			<div class="scrllble-tbl">
+				<table class="striped dshbrd-tbl casinobonus-table">
+					<thead>
+						<tr>
+							<th>Amount</th>
+							<th>Promotions</th>
+							<th class="turnOverRate">Turn Over Rate</th>
+							<th>Turnover Amount</th>
+							<th>Total Turnover</th>
+							<th>Expiry Date</th>
+							<th>Confiscate on forfeit</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!---->
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

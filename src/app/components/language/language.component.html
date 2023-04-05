@@ -1,0 +1,28 @@
+<a class="lang-cntr right waves-effect waves-light dropdown-button" data-activates="lang-drop" href="javascript:;" materialize="dropdown">
+    <i class="country selected-country" [ngClass]="{
+        'icon-32xENG': getCurrentLanguage() == 'EN',
+        'icon-32xTUR': getCurrentLanguage() == 'TR'
+    }"></i>
+    <span class="lang-code">{{getCurrentLanguage()}}</span>
+    <i class="material-icons right pg-icons">arrow_drop_down</i>
+</a>
+<ul class="dropdown-content" id="lang-drop" style="left: auto;">
+    <li>
+        <a href="javascript:;" (click)="setLanguage('tr')">
+            <span class="country-cont">
+                <i class="country pg-icons icon-32xTUR"></i>
+                <span class="text">Tr</span>
+                <i *ngIf="getCurrentLanguage() == 'TR'" class="material-icons lang-icons right pg-icons">check_circle_outline</i>
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="javascript:;" (click)="setLanguage('en')">
+            <span class="country-cont">
+                <i class="country pg-icons icon-32xENG"></i>
+                <span class="text">En</span>
+                <i *ngIf="getCurrentLanguage() == 'EN'" class="material-icons lang-icons right pg-icons">check_circle_outline</i>
+            </span>
+        </a>
+    </li>
+</ul>

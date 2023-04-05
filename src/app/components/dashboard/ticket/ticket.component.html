@@ -1,0 +1,54 @@
+<div class="bet-hstry-cntnt">
+	<div class="dshbrd-mdl">
+		<div class="mdl-hdr">
+			<div class="inf-hdr"><i class="fa fa-send"></i><span class="inf-title">{{'Tickets' | translate}}</span></div>
+		</div>
+		<div class="mdl-cntnt">
+
+				<div class="row">
+
+					<div class="input-field col s2">
+						<button class="btn w100" (click)="openDialog()" >{{'Add new ticket' | translate}}</button>
+					</div>
+				</div>
+
+		</div>
+	</div>
+	<div class="dshbrd-mdl">
+		<div class="mdl-hdr">
+			<div class="inf-hdr"><i class="fa fa-bars"></i>
+				<span class="inf-title">{{'Ticket List' | translate}}</span>
+			</div>
+		</div>
+		<div class="mdl-cntnt">
+			<div class="scrllble-tbl">
+				<table class="dshbrd-tbl highlight">
+					<thead>
+						<tr>
+							<th><span>Tarih</span></th>
+							<th><span >Mesaj</span></th>
+							<th><span >{{'State'|translate}}</span></th>
+							<th><span >Durum</span></th>
+							<th><span >Detay</span></th>
+						</tr>
+					</thead>
+					<tbody>
+
+						<tr  *ngFor="let ticket of tickets">
+							<td>{{ticket.created_at}}</td>
+							<td>{{ticket.message}}</td>
+							<td>{{ticket.state_name}}</td>
+              <td>{{ticket.status_name}}</td>
+							<td><button class="bg stts-L"  (click)="detail(ticket.id)"  ><i class="stts-L fa fa-detail"></i> {{'Detail'|translate}}</button></td>
+						</tr>
+
+					</tbody>
+				</table>
+			</div>
+			<!---->
+		</div>
+		<!---->
+	</div>
+	<!---->
+
+</div>

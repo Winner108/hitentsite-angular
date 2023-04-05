@@ -1,0 +1,43 @@
+<div class="prsnl-accnt-inf-cntnt">
+	<div class="dshbrd-mdl ">
+		<div class="mdl-hdr">
+			<div class="inf-hdr"><i class="material-icons">supervisor_account</i>
+				<label class="inf-title">{{'Personal and Account Information'|translate}}</label>
+			</div>
+		</div>
+		<div class="mdl-cntnt">
+			<table class="striped">
+				<tbody>
+					<tr>
+						<td>{{'Username'|translate}}</td>
+						<td>{{getUser().username}}</td>
+					</tr>
+					<tr>
+						<td>{{'E-Mail'|translate}}</td>
+						<td>{{getUser().email}}</td>
+					</tr>
+					<tr>
+						<td>{{'Name'|translate}}</td>
+						<td>{{getUser().firstname}} </td>
+					</tr>
+					<tr>
+						<td>{{'Last name'|translate}}</td>
+						<td>{{getUser().lastname}}</td>
+					</tr>
+					<tr>
+						<td>{{'Birthdate'|translate}}</td>
+						<td>{{getUser().birthday}}</td>
+					</tr>
+					<tr>
+						<td>{{'Phone'|translate}}</td>
+						<td>{{getUser().phone}}</td>
+					</tr>
+					<tr>
+						<td>{{'Currency'|translate}}</td>
+						<td>{{getUser().currency}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

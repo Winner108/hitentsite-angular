@@ -1,0 +1,250 @@
+body#trader-master-betgaranti, body.loaded {
+    background: inherit;
+    background-color: #1c2c43 !important;
+}
+
+.to-top-scroll {
+    position: fixed;
+    right: 10px;
+    bottom: 80px;
+}
+
+#navbar-top .gecis.logo :hover {
+    background-position: 0 0 !important;
+}
+
+#footer .footer-copyright, #footer .footer-copyright-2 {
+    padding: 0;
+}
+
+#footer .footer-copyright .container, #footer .footer-copyright-2 .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    width: 100%;
+}
+
+#footer .footer-copyright .container {
+	justify-content: center;
+}
+
+#footer .footer-copyright .container i {
+	margin: 0 20px;
+}
+
+#footer .footer-copyright-2 {
+	padding: 100px 0 20px 0;
+}
+
+#footer .footer-copyright {
+	padding: 0 0 100px 0;
+}
+
+#navbar-top .gecis.logo:hover {
+    background-position: 0 0;
+}
+
+#footer ul.footer-social li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    float: inherit;
+    border-radius: 100%;
+}
+
+#footer ul.footer-social li {
+    margin: 0 10px;
+}
+
+#footer .footer-copyright i, #footer .footer-copyright-2 i {
+    margin: 0;
+}
+
+.master-slider {
+    border-top: solid 4px #8cd54f;
+    border-bottom: solid 4px #8cd54f;
+}
+
+footer.page-footer {
+    padding-top: 0;
+	position: relative;
+}
+
+.payment_icons {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 35px 0px;
+    background: url(../../assets/images/payments-background.jpg) center no-repeat;
+    background-size: cover;
+}
+
+.payment_icons .payment_icons_container {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.payment_icons .payment_icons_container a figure {
+    margin: 0;
+}
+
+.payment_icons .payment_icons_container a figure img {
+    width: 140px;
+}
+
+.payment_icons .payment_icons_container a figure figcaption {
+    text-align: center;
+    color: white;
+	font-family: 'gilroy-bold';
+    font-size: 16px;
+    margin: 15px 0 0 0;
+}
+
+.games_icons {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 100px 0px;
+    background: url(../../assets/images/games-background.jpg) center no-repeat;
+    background-size: cover;
+}
+
+body.page-main .ms-container::before {
+	content: "";
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    background: url(../../assets/images/gift.png) top center no-repeat;
+    display: table;
+    z-index: 10;
+    bottom: 0;
+	right: 60px;
+    background-size: cover;
+}
+
+.games_icons::before {
+	content: "";
+    width: 100%;
+    height: 430px;
+    position: absolute;
+    background: url(../../assets/images/stars.png) top center no-repeat;
+    display: table;
+    z-index: 0;
+    bottom: 0;
+    background-size: cover;
+}
+
+body.page-main footer {
+	padding-bottom: 90px;
+}
+
+body.page-main footer::before {
+	content: "";
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    background: url(../../assets/images/footer.png) top center no-repeat;
+    display: table;
+    z-index: 0;
+    bottom: 0;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 767px) {
+	body.page-main footer::before {
+		display: none;
+	}
+}
+
+.games_icons .games_icons_container {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+	align-items: baseline;
+	position: relative;
+}
+
+.games_icons .games_icons_container a {
+	margin-right: 15px;
+}
+
+.games_icons .games_icons_container a:last-child {
+	margin-right: 0;
+}
+
+.games_icons .games_icons_container a figure {
+    margin: 0;
+}
+
+.games_icons .games_icons_container a figure img {
+    width: 100%;
+	max-width: 310px;
+}
+
+div#masterslider::before {
+	content: "";
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    background: url(../../assets/images/line2.png) top center no-repeat;
+    display: table;
+    z-index: 1;
+    top: -18px;
+    background-size: cover;
+}
+
+div#masterslider::after {
+	content: "";
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    background: url(../../assets/images/line2.png) top center no-repeat;
+    display: table;
+    z-index: 1;
+    bottom: -18px;
+    background-size: cover;
+}
+
+.top-down .top-menu>li>a {
+	border-radius: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+    height: fit-content;
+	background: transparent;
+}
+
+.top-down .top-menu i {
+	line-height: 20px !important;
+	background: url(../images/hex.png) top center/contain no-repeat;
+    color: #1c2d43;
+    font-size: 24px;
+    width: 50px;
+    height: 40px !important;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-down .top-menu.left>li i {
+    margin-right: 0;
+}
+
+.top-down .top-menu>li>a span + i{
+	display: none;
+}
+
+.top-down .top-menu > li > a span {
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-down .top-menu>li>a::before { display: none; }
+.top-down .top-menu>li>a::after { display: none; }

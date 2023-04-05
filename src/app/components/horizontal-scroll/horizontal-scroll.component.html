@@ -1,0 +1,14 @@
+<div class="all-vendors">
+  <a href="javascript:;" class="vendor-item vendorId-0" (click)="filter(undefined)" [ngClass]="{
+    'active': (currentId == 0)
+}" style="font-size: 20px;line-height: 48px;text-align: center;">
+
+<span>{{'All'|translate}}</span>
+</a>
+	<a *ngFor="let provider of providers;let index = index" href="javascript:;" class="vendor-item vendorId-{{provider.id}}" (click)="filter(provider)" [ngClass]="{
+        'active':  currentId == provider.id
+    }">
+		<span class="icon-img"><img src="{{server + provider.img}}"></span>
+		<span class="type truncate">{{provider.name}}</span>
+    </a>
+</div>

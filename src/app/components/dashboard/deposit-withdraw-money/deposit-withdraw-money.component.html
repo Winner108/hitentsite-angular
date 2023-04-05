@@ -1,0 +1,45 @@
+
+<div class="pymnt-cntnt">
+    <div class="dshbrd-mdl">
+        <div class="mdl-hdr">
+            <div class="inf-hdr"><i aria-hidden="true" class="fa fa-credit-card-alt"></i>
+                <span *ngIf="type == 'deposit'" class="inf-title">{{'Deposit'|translate}}</span>
+                <span *ngIf="type == 'withdraw'" class="inf-title">{{'Withdraw'|translate}}</span>
+            </div>
+        </div>
+        <app-notifications></app-notifications>
+        <div></div>
+    </div>
+    <div class="dshbrd-mdl">
+        <div class="mdl-hdr">
+            <div class="inf-hdr"><i aria-hidden="true" class="fa fa-credit-card-alt"></i>
+                <span *ngIf="type == 'deposit'" class="inf-title">{{'Money Deposit Options'|translate}}</span>
+                <span *ngIf="type == 'withdraw'" class="inf-title">{{'Money Withdraw Options'|translate}}</span>
+            </div>
+        </div>
+        <div class="mdl-cntnt clear">
+          <message-box *ngIf="status.msg != ''" type="{{status.msgType}}" content="MESSAGES.LOGIN_FAILD" contentText="{{status.msg}}"></message-box>
+            <app-static-inner-content contentcode="deposit-link"></app-static-inner-content>
+            <div class="col s12">
+                <div *ngFor="let bank of types" class="card-panel bank-card">
+                    <div class="flex-container">
+                        <payment-icon [bank]="bank.name" [type]="type"></payment-icon>
+                        <div class="flex-item">
+                            <div>
+                                <div class="bnk-inf-fld bnk-fisrts">
+                                    <h5 title="{{bank.title}}">{{bank.title}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="btn right deposit-btn" href="javascript:;" *ngIf="type == 'deposit'" (click)="openDialog(bank.id,bank.name, 'deposit',bank.title)">{{'Deposit'|translate}}</a>
+                        <a class="btn right withdraw-btn" href="javascript:;" *ngIf="type == 'withdraw'" (click)="openDialog(bank.id,bank.name, 'withdraw',bank.title)">{{'Withdraw'|translate}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-static-inner-content contentcode="deposit-bottom"></app-static-inner-content>
+</div>
+<div class="modal open dshbrd-modal pymnt-mdl" id="PaymentFormModal" materialize="modal" style="z-index: 1019;">
+    <!---->
+</div>

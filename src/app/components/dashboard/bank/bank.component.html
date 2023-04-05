@@ -1,0 +1,56 @@
+<div class="bet-hstry-cntnt">
+	<div class="dshbrd-mdl">
+		<div class="mdl-hdr">
+			<div class="inf-hdr"><i class="fa fa-bank"></i><span class="inf-title">{{'Bank Accounts' | translate}}</span></div>
+		</div>
+		<div class="mdl-cntnt">
+
+				<div class="row">
+
+					<div class="input-field col s2">
+						<button class="btn w100" (click)="openDialog()" >{{'Add new bank account' | translate}}</button>
+					</div>
+				</div>
+
+		</div>
+	</div>
+	<div class="dshbrd-mdl">
+		<div class="mdl-hdr">
+			<div class="inf-hdr"><i class="fa fa-bars"></i>
+				<span class="inf-title">{{'Bank Account List' | translate}}</span>
+			</div>
+		</div>
+		<div class="mdl-cntnt">
+			<div class="scrllble-tbl">
+				<table class="dshbrd-tbl highlight">
+					<thead>
+						<tr>
+							<th><span>Çekim Tipi</span></th>
+							<th><span >Banka</span></th>
+							<th><span >Hesap No</span></th>
+							<th><span >IBAN</span></th>
+							<th><span >Şehir</span></th>
+							<th><span >Sil</span></th>
+						</tr>
+					</thead>
+					<tbody>
+
+						<tr  *ngFor="let bank of banks">
+							<td>{{bank.type_name}}</td>
+							<td>{{bank.account_name}}</td>
+							<td>{{bank.data.account_number}}</td>
+							<td>{{bank.data.iban}}</td>
+							<td>{{bank.data.city}}</td>
+							<td><button class="bg stts-L"  (click)="deletebank(bank.id)"  ><i class="stts-L fa fa-times"></i> {{'Delete'|translate}}</button></td>
+						</tr>
+
+					</tbody>
+				</table>
+			</div>
+			<!---->
+		</div>
+		<!---->
+	</div>
+	<!---->
+
+</div>
